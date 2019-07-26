@@ -6,6 +6,9 @@
   * The last parameter accepts a callback 
   * In the body of the function return the callback with the two parameters that you created
 */
+function consume ( P1, P2, cb) {
+  return cb(P1,P2)
+}
 
 
 /* Step 2: Create several functions to callback with consume();
@@ -13,19 +16,30 @@
   * Create a function named multiply that returns the product of two numbers 
   * Create a function named greeting that accepts a first and last name and returns "Hello first-name last-name, nice to meet you!"
 */
+function add (P1,P2){
+  return P1 + P2;
+}
 
+function multiply(P1,P2){
+  return P1 * P2;
+}
+
+function greeting(first,last){
+  return `Hello ${first} ${last}, nice to meet you!`;
+}
 
 /* Step 3: Check your work by un-commenting the following calls to consume(): */
-// consume(2,2,add); // 4
-// consume(10,16,multiply); // 160
-// consume("Mary","Poppins", greeting); // Hello Mary Poppins, nice to meet you!
+ consume(2,2,add); // 4
+ consume(10,16,multiply); // 160
+ consume("Mary","Poppins", greeting); // Hello Mary Poppins, nice to meet you!
 
 
 // ==== Closures ==== 
 
 // Explain in your own words why `nestedfunction()` can access the variable `internal`.
 
-// Explanation: 
+// Explanation: Basically the function(s) can access variables in the local(function) and external(global) scope.
+// So inside external is a variable, which is referred to as 'interal', from which nestFunction is returned to the global scope.
 
 
 const external = "I'm outside the function";
